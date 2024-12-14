@@ -24,6 +24,11 @@ jobs:
 
       - name: Build Blazor WebAssembly
         run: dotnet publish -c Release -o publish
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ./publish/wwwroot
     
   deploy:
     needs: build
